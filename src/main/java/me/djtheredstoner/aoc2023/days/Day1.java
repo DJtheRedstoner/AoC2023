@@ -51,6 +51,8 @@ public class Day1 implements DayBase {
     }
 
     public static void main(String...args) {
+        new Day1().test(1);
+        new Day1().test(2);
         new Day1().run();
     }
 }

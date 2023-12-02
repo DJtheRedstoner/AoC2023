@@ -87,6 +87,8 @@ public class Day2 implements DayBase {
     }
 
     public static void main(String...args) {
+        new Day2().test(1);
+        new Day2().test(2);
         new Day2().run();
     }
 }

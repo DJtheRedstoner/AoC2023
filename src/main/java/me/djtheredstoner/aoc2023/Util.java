@@ -1,5 +1,6 @@
 package me.djtheredstoner.aoc2023;
 
+import java.io.File;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.nio.file.Files;
@@ -12,6 +13,18 @@ public class Util {
         var path = Path.of("inputs", day + ".txt");
         if (!Files.exists(path)) {
             downloadInput(day, path);
+        }
+        try {
+            return Files.readAllLines(path);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static List<String> getTestLines(int day, int part) {
+        var path = Path.of("inputs", day + ".test." + part + ".txt");
+        if (!Files.exists(path)) {
+            return null;
         }
         try {
             return Files.readAllLines(path);
