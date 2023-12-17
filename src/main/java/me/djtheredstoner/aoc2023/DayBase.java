@@ -28,9 +28,9 @@ public interface DayBase {
 
         init(lines);
         System.out.println("=== Part 1 ===");
-        part1(lines);
+        time(() -> part1(lines));
         System.out.println("=== Part 2 ===");
-        part2(lines);
+        time(() -> part2(lines));
     }
 
     void init(List<String> lines);
@@ -38,5 +38,13 @@ public interface DayBase {
     void part1(List<String> lines);
 
     void part2(List<String> lines);
+
+    private void time(Runnable r) {
+        long start = System.nanoTime();
+        r.run();
+        long end = System.nanoTime();
+        long delta = end - start;
+        System.out.println("Time: " + delta / 1_000_000.0 + "ms");
+    }
 
 }
